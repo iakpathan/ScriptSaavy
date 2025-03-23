@@ -1,0 +1,6 @@
+Create a detailed, engaging, and SEO-optimized script on the topic "{topic}" using the following refined insights:
+
+{refined_insights}
+
+Ensure the script targets {target_audience}, covers all relevant subtopics, and includes a strong call-to-action.
+

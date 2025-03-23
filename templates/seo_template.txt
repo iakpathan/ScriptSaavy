@@ -1,0 +1,10 @@
+Optimize the following script for SEO with relevant keywords and tags:
+
+{content}
+
+Instructions:
+1. Identify the target audience and relevant keywords.
+2. Add SEO-friendly titles, descriptions, and tags.
+3. Suggest relevant hashtags and meta descriptions.
+4. Ensure the content is well-structured and keyword-optimized.
+

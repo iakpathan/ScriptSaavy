@@ -1,0 +1,17 @@
+flask
+langchain
+openai
+serpapi
+googlesearch-python
+pypdf
+pillow
+python-dotenv
+requests
+pyttsx3
+langchain_community
+reportlab
+python-docx
+fpdf
+transformers
+tensorflow
+gTTs
