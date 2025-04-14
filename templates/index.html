@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Savvy Script</title>
+    <meta charset="UTF-8">
+    <title>Savvy Script AI</title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -10,14 +11,66 @@
             margin: 0;
             padding: 0;
             display: flex;
+            height: 100vh;
+        }
+
+        .sidebar {
+            width: 240px;
+            background-color: #2e2e3e;
+            padding: 20px;
+            box-shadow: inset -1px 0 0 #444;
+            overflow-y: auto;
+        }
+
+        .sidebar h3 {
+            color: #f1f5f9;
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .sidebar li {
+            background-color: #3e3e4e;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 6px;
+            font-size: 14px;
+            color: #cbd5e1;
+        }
+
+        .sidebar button {
+            width: 100%;
+            padding: 12px;
+            margin-top: 20px;
+            margin-bottom: 16px;
+            border-radius: 8px;
+            border: none;
+            outline: none;
+            background-color: #ff4b5c;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .sidebar button:hover {
+            background-color: #e0374c;
+        }
+
+        .main {
+            flex: 1;
+            display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
         }
 
         .container {
             background-color: #2e2e3e;
-            padding: 20px;
+            padding: 30px 40px;
             border-radius: 12px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
             width: 400px;
@@ -34,7 +87,8 @@
             color: #f1f5f9;
         }
 
-        input[type="text"], .generate-button {
+        input[type="text"],
+        .generate-button {
             width: 100%;
             padding: 12px;
             margin-top: 8px;
@@ -94,17 +148,41 @@
         #download-links a:nth-child(2)::before {
             content: '🔊';
         }
+
+        #clear-history {
+            background-color: #ff4b5c;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            width: 100%;
+            padding: 12px;
+            border-radius: 8px;
+            border: none;
+            outline: none;
+        }
+
+        #clear-history:hover {
+            background-color: #e0374c;
+        }
     </style>
 </head>
 <body>
-    <div class="container">
-        <!-- Logo added here -->
-        <img src="../templates/img1.png" alt="Savvy Script" class="logo">
-        
-        <h2>🎥 Savvy Script</h2>
-        <input type="text" id="prompt" placeholder="Enter your topic...">
-        <button class="generate-button">Generate</button>
-        <div id="download-links"></div>
+    <aside class="sidebar">
+        <h3>Search History</h3>
+        <ul id="history-list"></ul>
+        <!-- Clear History Button -->
+        <button id="clear-history">Clear History</button>
+    </aside>
+
+    <div class="main">
+        <div class="container">
+            <img src="../templates/Hannah_20250413_222001_0000.png" alt="Saavy Script" class="logo">
+            <h2>🎥 Savvy Script</h2>
+            <input type="text" id="prompt" placeholder="Enter your topic...">
+            <button class="generate-button">Generate</button>
+            <div id="download-links"></div>
+        </div>
     </div>
 
     <script>
@@ -128,13 +206,18 @@
                 console.log("Response:", data);
 
                 if (data.export_path && data.audio_path) {
-                    // ✅ Provide download links for both PDF and audio
                     const downloadLinks = document.getElementById("download-links");
                     downloadLinks.innerHTML = `
                         <p>Download your files:</p>
                         <a href="http://127.0.0.1:5000${data.export_path}" target="_blank" download="generated_script.pdf">Download Script (PDF)</a>
                         <a href="http://127.0.0.1:5000${data.audio_path}" target="_blank" download="voiceover.mp3">Download Voiceover (MP3)</a>
                     `;
+
+                    const historyList = document.getElementById("history-list");
+                    const li = document.createElement("li");
+                    li.textContent = topic;
+                    historyList.prepend(li);
+
                     alert("Script and audio generated successfully! Download your files below.");
                 } else {
                     alert("Failed to generate script or audio.");
@@ -144,6 +227,13 @@
                 console.error("Error:", error);
                 alert("Failed to generate content.");
             });
+        });
+
+        // Clear History functionality
+        document.getElementById("clear-history").addEventListener("click", () => {
+            const historyList = document.getElementById("history-list");
+            historyList.innerHTML = ''; // Clear the history list
+            alert("Search history cleared!");
         });
     </script>
 </body>
