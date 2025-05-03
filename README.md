@@ -1,89 +1,105 @@
- # 🎥 Saavy Script AI
+ # 🎥 Script AI
 
 Saavy Script AI is a web application that allows content creators to **generate YouTube scripts and voiceovers automatically** by simply entering a topic. It uses AI to generate the script, converts it into a downloadable PDF, and also generates an MP3 voiceover using text-to-speech.
 
 ---
+ 
 
-## 🛠 Features
+## 🌟 Features
 
-- 🎯 Input a topic and instantly generate a content script.
-- 📄 Download the script as a PDF.
-- 🔊 Download the generated voiceover as an MP3.
-- 📚 Maintains a search history on the sidebar.
-- 🧹 Option to clear search history.
-- 🤖 Backend powered by Flask + Groq API (ChatGPT-like model).
+
+- 🎯 Generate high-quality scripts for YouTube, Podcasts, and LinkedIn
+- 🧠 AI memory to remember past chats
+- 📁 Export scripts in PDF format
+- 🎙️ Text-to-speech voiceover generation (english)
+- 🔥 Trending topic analysis and search
+- 🖥️ Clean and responsive user interface (HTML + CSS + JS)
+- 🚀 Fast LLM responses using Groq API and LangChain
+
 
 ---
 
+## 🧪 Tech Stack
+
+- **Frontend**: HTML, CSS (in `templates/`)
+- **Backend**: Python (Flask)
+- **AI Layer**: LangChain, Groq API
+- **Utilities**: PyPDF2, gTTS, OS, dotenv
+- **Project Structure**: Modular design for maintainability
 
 ---
 
-## 🚀 Getting Started
+## ⚙️ Pre-Installation Setup
 
-### 🔧 Prerequisites
+### 🐍 Python & Pip
 
-- Python 3.x
-- pip
-- A Groq API key (used to access Mixtral/LLM)
-- Required Python packages (see below)
+Install Python and pip (skip if already installed):
 
-### 📦 Installation
+```bash
+ # 1. Clone the repository
+git clone https://github.com/iakpathan/ScriptSaavy.git
+cd ScriptSaavy
 
- 1.clone the repo:
- 
+# 2. Create and activate a virtual environment
+pip install virtualenv
+virtualenv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
 
-2.Install dependencies:
+# 3. Install dependencies
+pip install -r requirements.txt
 
-pip install flask groq gtts
-groq_api_key = "your_groq_api_key"
+# 4. Add your Groq API key to .env
+echo "GROQ_API_KEY=your_groq_api_key_here" > .env
 
- 
-Add your Groq API key:
-groq_api_key = "your_groq_api_key"
-Open app.py and replace:
-
-
-
-
-💻 Running the App
-Start the Flask server:
-
+# 5. Run the Flask app
 python app.py
-Open your browser and navigate to:
-http://127.0.0.1:5000
+📁 Outputs and UI Features
+The scripts/ folder inside Script/ stores generated output (PDF/voice).
 
-🧪 Usage
-Enter a topic in the input field.
+The UI has buttons to download:
+PDF (generated_script.pdf)
+MP3 voiceover file
 
-Click on Generate.
+📂 Project Structure
+bash
+Copy
+Edit
+saavy-script-ai/
+├── Script/                    # Custom modules or notebooks (WIP)
+├── agents/                   # LangChain agents
+├── chains/                   # LLM chain configuration and classifier
+├── data/                     # Input/output data (if any)
+├── exports/                  # Exported PDFs or logs
+├── templates/                # Frontend HTML templates
+├── tests/                    # Test scripts (unit/integration)
+├── utils/                    # Utility functions (PDF, TTS)
+├── voiceover/                # Output voiceover files
+├── app.py                    # Main Flask backend
+├── chat_cli.py               # Command-line chatbot version
+├── generated_script.pdf      # Sample output
+├── requirements.txt          # Python dependencies
+├── .env                      # Environment variables (not committed)
+├── README.md                 # Project documentation
+🚀 Run Locally
+ 
 
-Wait for the script and voiceover to be created.
+🔗 API Endpoints
+Route	Method	Description
+/	GET	Home page
+/generate	POST	Generate script and voiceover
+/chat	POST	Chatbot conversation
+/download/<fn>	GET	Download audio file
 
-Download the script (PDF) and voiceover (MP3) using the links.
+📤 Output Files
+PDF files are saved in: Script/scripts/generated_script.pdf
 
-View your past topics in the sidebar under Search History.
+Voiceover files are saved in: voiceover/generated_voice.mp3
 
+You can download both directly from the UI after generation.
 
-🧠 Powered By
-Groq API
+📄 License
+Licensed under the MIT License. See LICENSE for details.
 
-gTTS (Google Text-to-Speech)
-
-Flask (Python web framework)
-
-📌 Future Improvements
-Add support for choosing voice type (male/female).
-
-Allow selection of output languages.
-
-Add login system for saving history per user.
-
-Include video generation from script + voice.
-
-
-
-
-Let me know if you want a `requirements.txt` file or want to publish it on GitHub
-
-
+📬 Contact
+👤 Maintainers & developers: iakpathan and team.
 
