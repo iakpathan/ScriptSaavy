@@ -1,4 +1,4 @@
- # 🎥 Script AI
+ # 🎥 Saavy Script AI
 
 Saavy Script AI is a web application that allows content creators to **generate YouTube scripts and voiceovers automatically** by simply entering a topic. It uses AI to generate the script, converts it into a downloadable PDF, and also generates an MP3 voiceover using text-to-speech.
 
