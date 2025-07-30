@@ -5,21 +5,21 @@ Saavy Script AI is a web application that allows content creators to **generate 
 ---
  
 
-## 🌟 Features
+##  Features
 
 
-- 🎯 Generate high-quality scripts for YouTube, Podcasts, and LinkedIn
-- 🧠 AI memory to remember past chats
-- 📁 Export scripts in PDF format
-- 🎙️ Text-to-speech voiceover generation (english)
-- 🔥 Trending topic analysis and search
-- 🖥️ Clean and responsive user interface (HTML + CSS + JS)
-- 🚀 Fast LLM responses using Groq API and LangChain
+-  Generate high-quality scripts for YouTube, Podcasts, and LinkedIn
+-  AI memory to remember past chats
+-  Export scripts in PDF format
+-  Text-to-speech voiceover generation (english)
+-  Trending topic analysis and search
+-  Clean and responsive user interface (HTML + CSS + JS)
+-  Fast LLM responses using Groq API and LangChain
 
 
 ---
 
-## 🧪 Tech Stack
+##  Tech Stack
 
 - **Frontend**: HTML, CSS (in `templates/`)
 - **Backend**: Python (Flask)
@@ -29,9 +29,9 @@ Saavy Script AI is a web application that allows content creators to **generate 
 
 ---
 
-## ⚙️ Pre-Installation Setup
+##  Pre-Installation Setup
 
-### 🐍 Python & Pip
+###  Python & Pip
 
 Install Python and pip (skip if already installed):
 
@@ -53,14 +53,14 @@ echo "GROQ_API_KEY=your_groq_api_key_here" > .env
 
 # 5. Run the Flask app
 python app.py
-📁 Outputs and UI Features
+Outputs and UI Features
 The scripts/ folder inside Script/ stores generated output (PDF/voice).
 
 The UI has buttons to download:
 PDF (generated_script.pdf)
 MP3 voiceover file
 
-📂 Project Structure
+Project Structure
 bash
 Copy
 Edit
@@ -80,26 +80,26 @@ saavy-script-ai/
 ├── requirements.txt          # Python dependencies
 ├── .env                      # Environment variables (not committed)
 ├── README.md                 # Project documentation
-🚀 Run Locally
+ Run Locally
  
 
-🔗 API Endpoints
+ API Endpoints
 Route	Method	Description
 /	GET	Home page
 /generate	POST	Generate script and voiceover
 /chat	POST	Chatbot conversation
 /download/<fn>	GET	Download audio file
 
-📤 Output Files
+Output Files
 PDF files are saved in: Script/scripts/generated_script.pdf
 
 Voiceover files are saved in: voiceover/generated_voice.mp3
 
 You can download both directly from the UI after generation.
 
-📄 License
+ License
 Licensed under the MIT License. See LICENSE for details.
 
-📬 Contact
-👤 Maintainers & developers: iakpathan and team.
+ Contact
+ Maintainers & developers: iakpathan and team.
 
